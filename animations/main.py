@@ -4,31 +4,26 @@ lowercase_mp4_renamer.py
 
 A command-line utility to recursively rename all .mp4 files
 in a given directory (default: current working directory)
-so that filenames are in lowercase and have no special characters.
+to have lowercase filenames.
 """
 import argparse
 import logging
-import re
 from pathlib import Path
 import sys
 
-def rename_mp4_clean(dir_path: Path, dry_run: bool = False):
+def rename_mp4_to_lower(dir_path: Path, dry_run: bool = False):
     """
     Recursively find all files in dir_path with a .mp4 extension
-    (case-insensitive), convert filenames to lowercase,
-    strip out special characters (keeping only alphanumeric,
-    hyphens, and underscores), and rename them accordingly.
+    (case-insensitive) and rename them to lowercase filenames.
 
     :param dir_path: Path object pointing to the target directory
-    :param dry_run: If True, only log operations without renaming
+    :param dry_run: If True, only print operations without renaming
     """
     for path in dir_path.rglob('*'):
+        # Check if it's a file and has .mp4 extension (case-insensitive)
         if path.is_file() and path.suffix.lower() == '.mp4':
-            stem = path.stem
-            suffix = path.suffix.lower()
-            # Lowercase and remove special characters (allow a-z, 0-9, - and _)
-            new_stem = re.sub(r'[^a-z0-9_-]', '', stem.lower())
-            new_name = new_stem + suffix
+            # Construct new name with lowercase filename
+            new_name = path.name.lower()
             if path.name != new_name:
                 new_path = path.with_name(new_name)
                 logging.info(f"Renaming: '{path}' -> '{new_path}'")
@@ -41,7 +36,7 @@ def rename_mp4_clean(dir_path: Path, dry_run: bool = False):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Recursively rename .mp4 files to lowercase filenames and remove special characters."
+        description="Recursively rename .mp4 files to lowercase filenames."
     )
     parser.add_argument(
         'directory',
@@ -52,7 +47,7 @@ def main():
     parser.add_argument(
         '--dry-run',
         action='store_true',
-        help="Show what would be renamed without making changes."
+        help="Print operations without performing renames."
     )
     parser.add_argument(
         '--verbose', '-v',
@@ -61,6 +56,8 @@ def main():
     )
 
     args = parser.parse_args()
+    
+    # Configure logging
     log_level = logging.DEBUG if args.verbose else logging.INFO
     logging.basicConfig(level=log_level, format='%(levelname)s: %(message)s')
 
@@ -70,8 +67,9 @@ def main():
         sys.exit(1)
 
     logging.info(f"Scanning directory: {target_dir}")
-    rename_mp4_clean(target_dir, dry_run=args.dry_run)
+    rename_mp4_to_lower(target_dir, dry_run=args.dry_run)
     logging.info("Done.")
+
 
 if __name__ == '__main__':
     main()
