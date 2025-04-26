@@ -1,0 +1,185 @@
+{
+	Tools = ordered() {
+		pj_Guidelines = MacroOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\PeeJ PACK TOOLS FINAL\\Free\\"
+					}
+				},
+			},
+			Inputs = ordered() {
+				Input2 = InstanceInput {
+					SourceOp = "Merge1_1",
+					Source = "Blend",
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Dissolve1",
+					Source = "Mix",
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "Merge1_1",
+					Source = "Background",
+				}
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					SourceOp = "Merge1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 340.438, 54.1744 } },
+			Tools = ordered() {
+				Background2 = Background {
+					CtrlWShown = false,
+					Inputs = {
+						GlobalOut = Input { Value = 23, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 53.0235, 8.56809 } },
+				},
+				Rectangle1 = RectangleMask {
+					CtrlWShown = false,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						BorderWidth = Input { Value = 0.0055, },
+						Solid = Input { Value = 0, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Width = Input { Value = 0.562540480477453, },
+						Height = Input { Value = 1.00026892939638, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -53.3835, 9.82709 } },
+				},
+				Grid1 = ofx.com.blackmagicdesign.resolvefx.Grid {
+					CtrlWShown = false,
+					Inputs = {
+						Source = Input {
+							SourceOp = "Background2",
+							Source = "Output",
+						},
+						vernum = Input { Value = 3, },
+						hornum = Input { Value = 3, },
+						majorspace = Input { Value = 0, },
+						lineprop = Input { Value = 1, },
+						linecolorRed = Input { Value = 0.323, },
+						linecolorGreen = Input { Value = 0.323, },
+						linecolorBlue = Input { Value = 0.323, },
+						horwidth = Input { Value = 0.016, },
+						verwidth = Input { Value = 0.009, },
+						majorwidth = Input { Value = 1, },
+						tranform = Input { Value = 1, },
+						pan = Input { Value = 0, },
+						tilt = Input { Value = 0, },
+						zoom = Input { Value = 1, },
+						rotate = Input { Value = 0, },
+						gridwidth = Input { Value = 1, },
+						gridheight = Input { Value = 1, },
+						ShearX = Input { Value = 0, },
+						ShearY = Input { Value = 0, },
+						pitch = Input { Value = 0, },
+						yaw = Input { Value = 0, },
+						blendGroup = Input { Value = 0, },
+						blendIn = Input { Value = 1, },
+						blend = Input { Value = 0, },
+						ignoreContentShape = Input { Value = 0, },
+						legacyIsProcessRGBOnly = Input { Value = 0, },
+						refreshTrigger = Input { Value = 1, },
+						resolvefxVersion = Input { Value = "1.0", },
+					},
+					ViewInfo = OperatorInfo { Pos = { 51.6895, 38.2655 } },
+				},
+				Background1 = Background {
+					CtrlWShown = false,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "Rectangle1",
+							Source = "Mask",
+						},
+						GlobalOut = Input { Value = 23, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 0.315, },
+						TopLeftGreen = Input { Value = 0.315, },
+						TopLeftBlue = Input { Value = 0.315, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -53.3365, 38.7638 } },
+				},
+				Dissolve1 = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					CtrlWShown = false,
+					Inputs = {
+						Mix = Input { Value = 0, },
+						Background = Input {
+							SourceOp = "Background1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Grid1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -24.9765, 73.417 } },
+				},
+				Merge1_1 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "MediaIn1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Dissolve1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+						Comments = Input { Value = "0.748", },
+						FrameRenderScriptNest = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -24.3265, 106.947 } },
+				}
+			},
+			Colors = { TileColor = { R = 0.584313725490196, G = 0.294117647058824, B = 0.803921568627451 }, },
+			UserControls = ordered() {
+				Input2 = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = false,
+					INPID_InputControl = "CheckboxControl",
+					INP_MaxScale = 1,
+					INP_MinScale = 0,
+					INP_MinAllowed = -1000000,
+					LINKID_DataType = "Number",
+					ICS_ControlPage = "Controls",
+					CBC_TriState = false,
+					LINKS_Name = "On/Off"
+				},
+				Input3 = {
+					INP_MaxAllowed = 1,
+					INP_Integer = false,
+					INPID_InputControl = "CheckboxControl",
+					INP_MaxScale = 1,
+					INP_MinScale = 0,
+					INP_MinAllowed = 0,
+					LINKID_DataType = "Number",
+					ICS_ControlPage = "Controls",
+					CBC_TriState = false,
+					LINKS_Name = "Type"
+				}
+			}
+		}
+	}
+}

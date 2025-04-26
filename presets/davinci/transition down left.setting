@@ -1,0 +1,228 @@
+{
+	Tools = ordered() {
+		S_BlurMoCurves1_1 = ofx.com.genarts.sapphire.BlurSharpen.S_BlurMoCurves {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] Highlights Transitions Pack\\"
+					}
+				},
+			},
+			Inputs = {
+				Mode = Input { Value = 0, },
+				LoadPreset = Input { Value = 0, },
+				SavePreset = Input { Value = 0, },
+				EditMocha = Input { Value = 0, },
+				mocha_project = Input {
+					Value = Text {
+					},
+				},
+				group_0 = Input { Value = 0, },
+				blur_mocha = Input { Value = 0, },
+				mocha_opacity = Input { Value = 1, },
+				invert_mocha = Input { Value = 0, },
+				resize_mocha = Input { Value = 1, },
+				resize_rel_x = Input { Value = 1, },
+				resize_rel_y = Input { Value = 1, },
+				shift_mocha_x = Input { Value = 0, },
+				shift_mocha_y = Input { Value = 0, },
+				bypass_mocha = Input { Value = 0, },
+				show_mocha_only = Input { Value = 0, },
+				combine_masks = Input { Value = 0, },
+				center = Input { Value = { 0.5, 0.5 }, },
+				z_dist = Input { Value = 1, },
+				rotate = Input { Value = 0, },
+				shift_x = Input {
+					SourceOp = "S_BlurMoCurves1_1ShiftX",
+					Source = "Value",
+				},
+				shift_y = Input {
+					SourceOp = "S_BlurMoCurves1_1ShiftY",
+					Source = "Value",
+				},
+				shutter_duration = Input { Value = 1, },
+				shutter_shift = Input { Value = 0, },
+				exposure_bias = Input { Value = 0.5, },
+				brightness = Input { Value = 1, },
+				wrap_x = Input { Value = 2, },
+				wrap_y = Input { Value = 2, },
+				blur_res = Input { Value = 0, },
+				subpixel = Input { Value = 1, },
+				mask_use = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				blur_mask = Input {
+					Value = 0.00625,
+					Disabled = true,
+				},
+				invert_mask = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				["Crop Input"] = Input { Value = 1, },
+				crop_left = Input { Value = 0, },
+				crop_right = Input { Value = 0, },
+				crop_top = Input { Value = 0, },
+				crop_bottom = Input { Value = 0, },
+				ShowCenter = Input { Value = 1, },
+				ShowTransform = Input { Value = 1, },
+				ShowShift = Input { Value = 0, },
+				help = Input { Value = 0, },
+				["Enable GPU"] = Input { Value = 1, },
+				version = Input { Value = 11.01, },
+				version2 = Input { Value = 14629838, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 220.382, 68.7093 } },
+		},
+		S_BlurMoCurves1_1ShiftX = BezierSpline {
+			SplineColor = { Red = 226, Green = 102, Blue = 244 },
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] Highlights Transitions Pack\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[4] = { 0, RH = { 5.666665, 0 }, Flags = { Linear = true } },
+				[9] = { -0.3, LH = { 7.333335, 0 }, RH = { 9.33333333333333, -0.1 } },
+				[10] = { 0.3, LH = { 9.66666666666667, 0.1 }, RH = { 11.666665, 0 }, Flags = { Linear = true } },
+				[15] = { 0, LH = { 13.333335, 0 } }
+			}
+		},
+		S_BlurMoCurves1_1ShiftY = BezierSpline {
+			SplineColor = { Red = 244, Green = 102, Blue = 198 },
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] Highlights Transitions Pack\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[4] = { 0, RH = { 5.666665, 0 }, Flags = { Linear = true } },
+				[9] = { -0.3, LH = { 7.333335, 0 }, RH = { 9.33333333333333, -0.1 } },
+				[10] = { 0.3, LH = { 9.66666666666667, 0.1 }, RH = { 11.666665, 0 }, Flags = { Linear = true } },
+				[15] = { 0, LH = { 13.333335, 0 } }
+			}
+		},
+		S_BlurMoCurves2_1 = ofx.com.genarts.sapphire.BlurSharpen.S_BlurMoCurves {
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] Highlights Transitions Pack\\"
+					}
+				},
+			},
+			Inputs = {
+				Source = Input {
+					SourceOp = "S_BlurMoCurves1_1",
+					Source = "Output",
+				},
+				Mode = Input { Value = 0, },
+				LoadPreset = Input { Value = 0, },
+				SavePreset = Input { Value = 0, },
+				EditMocha = Input { Value = 0, },
+				mocha_project = Input {
+					Value = Text {
+					},
+				},
+				group_0 = Input { Value = 0, },
+				blur_mocha = Input { Value = 0, },
+				mocha_opacity = Input { Value = 1, },
+				invert_mocha = Input { Value = 0, },
+				resize_mocha = Input { Value = 1, },
+				resize_rel_x = Input { Value = 1, },
+				resize_rel_y = Input { Value = 1, },
+				shift_mocha_x = Input { Value = 0, },
+				shift_mocha_y = Input { Value = 0, },
+				bypass_mocha = Input { Value = 0, },
+				show_mocha_only = Input { Value = 0, },
+				combine_masks = Input { Value = 0, },
+				center = Input { Value = { 0.5, 0.5 }, },
+				z_dist = Input { Value = 1, },
+				rotate = Input { Value = 0, },
+				shift_x = Input {
+					SourceOp = "S_BlurMoCurves2_1ShiftX",
+					Source = "Value",
+				},
+				shift_y = Input {
+					SourceOp = "S_BlurMoCurves2_1ShiftY",
+					Source = "Value",
+				},
+				shutter_duration = Input { Value = 1, },
+				shutter_shift = Input { Value = 0, },
+				exposure_bias = Input { Value = 0.5, },
+				brightness = Input { Value = 1, },
+				wrap_x = Input { Value = 2, },
+				wrap_y = Input { Value = 2, },
+				blur_res = Input { Value = 0, },
+				subpixel = Input { Value = 1, },
+				mask_use = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				blur_mask = Input {
+					Value = 0.00625,
+					Disabled = true,
+				},
+				invert_mask = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				["Crop Input"] = Input { Value = 1, },
+				crop_left = Input { Value = 0, },
+				crop_right = Input { Value = 0, },
+				crop_top = Input { Value = 0, },
+				crop_bottom = Input { Value = 0, },
+				ShowCenter = Input { Value = 1, },
+				ShowTransform = Input { Value = 1, },
+				ShowShift = Input { Value = 0, },
+				help = Input { Value = 0, },
+				["Enable GPU"] = Input { Value = 1, },
+				version = Input { Value = 11.01, },
+				version2 = Input { Value = 14629838, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 330.382, 68.7093 } },
+		},
+		S_BlurMoCurves2_1ShiftX = BezierSpline {
+			SplineColor = { Red = 226, Green = 102, Blue = 244 },
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] Highlights Transitions Pack\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[9] = { 0, RH = { 10.333332, 0 }, Flags = { Linear = true } },
+				[13] = { -0.097, LH = { 11.666668, 0 }, RH = { 13.999999, 0 } },
+				[16] = { 0, LH = { 15.000001, 0 } }
+			}
+		},
+		S_BlurMoCurves2_1ShiftY = BezierSpline {
+			SplineColor = { Red = 244, Green = 102, Blue = 198 },
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] Highlights Transitions Pack\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[9] = { 0, RH = { 10.333332, 0 }, Flags = { Linear = true } },
+				[13] = { -0.107, LH = { 11.666668, 0 }, RH = { 13.999999, 0 } },
+				[16] = { 0, LH = { 15.000001, 0 } }
+			}
+		}
+	},
+	ActiveTool = "S_BlurMoCurves1_1"
+}

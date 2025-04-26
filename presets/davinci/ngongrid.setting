@@ -1,0 +1,506 @@
+{
+	Tools = ordered() {
+		pj_NgonGrid = MacroOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\PeeJ PACK TOOLS FINAL\\Free\\"
+					}
+				},
+				Settings = {
+				}
+			},
+			Inputs = ordered() {
+				Input11 = InstanceInput {
+					SourceOp = "Dissolve1_1_1_2",
+					Source = "Mix",
+				},
+				Input7 = InstanceInput {
+					SourceOp = "sRender5_1_1_2",
+					Source = "Width",
+				},
+				Input8 = InstanceInput {
+					SourceOp = "sRender5_1_1_2",
+					Source = "Height",
+				},
+				Input1 = InstanceInput {
+					SourceOp = "sNGon2_1_1_2",
+					Source = "Sides",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "sNGon2_1_1_2",
+					Source = "Solid",
+				},
+				Input3 = InstanceInput {
+					SourceOp = "sNGon2_1_1_2",
+					Source = "BorderWidth",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "sNGon2_1_1_2",
+					Source = "Width",
+				},
+				Input5 = InstanceInput {
+					SourceOp = "sNGon2_1_1_2",
+					Source = "Height",
+					Expression = "Width",
+				},
+				Input6 = InstanceInput {
+					SourceOp = "sNGon2_1_1_2",
+					Source = "Angle",
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Transform6_1_1_2",
+					Source = "Size",
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Transform6_1_1_2",
+					Source = "Angle",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Dissolve1_1_1_2",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 250.871, -18.679 } },
+			Tools = ordered() {
+				OpacityMaskHolder_1_1_1_2 = MacroOperator {
+					CtrlWShown = false,
+					CustomData = { Path = { Map = { ["Setting:"] = "Macros:\\" } } },
+					Inputs = ordered() {
+						MainInput1 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "Foreground",
+						},
+						Input2 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "Center",
+						},
+						Input3 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "Size",
+							Default = 1,
+						},
+						Input4 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "Angle",
+							Default = 0,
+						},
+						Input5 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "FlipHoriz",
+							ControlGroup = 6,
+							Default = 0,
+						},
+						Input6 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "FlipVert",
+							ControlGroup = 6,
+							Default = 0,
+						},
+						Input7 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "ApplyMode",
+						},
+						Input8 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "Operator",
+						},
+						Input9 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "SubtractiveAdditive",
+							Default = 1,
+						},
+						Input10 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "Gain",
+							Default = 1,
+						},
+						Input11 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "BurnIn",
+							Default = 0,
+						},
+						Input12 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "BlendClone",
+							Default = 1,
+						},
+						Input13 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "Edges",
+							Default = 0,
+						},
+						Input14 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "Blend",
+							Default = 1,
+						},
+						Input15 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "ApplyMaskInverted",
+							Default = 0,
+						},
+						Input16 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "MultiplyByMask",
+							Default = 0,
+						},
+						Input17 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "FitMask",
+						},
+						Input18 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "MaskChannel",
+							Default = 3,
+						},
+						Input19 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "MaskLow",
+							ControlGroup = 19,
+							Default = 0,
+						},
+						Input20 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "MaskHigh",
+							ControlGroup = 19,
+							Default = 1,
+						},
+						Input21 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "MaskClipBlack",
+							Name = "Black",
+							Default = 1,
+						},
+						Input22 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "MaskClipWhite",
+							Name = "White",
+							Default = 1,
+						},
+						Input23 = InstanceInput {
+							SourceOp = "Background2_2_1_1_2",
+							Source = "Width",
+							Default = 1920,
+						},
+						Input24 = InstanceInput {
+							SourceOp = "Background2_2_1_1_2",
+							Source = "Height",
+							Default = 1080,
+						},
+						Input25 = InstanceInput {
+							SourceOp = "Background2_2_1_1_2",
+							Source = "PixelAspect",
+							DefaultX = 1,
+							DefaultY = 1,
+						},
+						Input26 = InstanceInput {
+							SourceOp = "Background2_2_1_1_2",
+							Source = "UseFrameFormatSettings",
+							Default = 1,
+						},
+						Input1 = InstanceInput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "EffectMask",
+						}
+					},
+					Outputs = {
+						MainOutput1 = InstanceOutput {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "Output",
+						}
+					},
+					ViewInfo = GroupInfo { Pos = { -59.7534, 129.518 } },
+					Tools = ordered() {
+						Merge2_3_1_2_2 = Merge {
+							CtrlWZoom = false,
+							CtrlWShown = false,
+							Inputs = {
+								Background = Input {
+									SourceOp = "Background2_2_1_1_2",
+									Source = "Output",
+								},
+								Foreground = Input {
+									SourceOp = "Transform6_1_1_2",
+									Source = "Output",
+								},
+								Edges = Input { Value = 1, },
+								PerformDepthMerge = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { 54, 8.32908 } },
+						},
+						Background2_2_1_1_2 = Background {
+							CtrlWShown = false,
+							Inputs = {
+								GlobalOut = Input { Value = 23, },
+								Width = Input { Value = 1920, },
+								Height = Input { Value = 1080, },
+								UseFrameFormatSettings = Input { Value = 1, },
+								["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+								TopLeftAlpha = Input { Value = 0, },
+							},
+							ViewInfo = OperatorInfo { Pos = { -55.366, 9.18608 } },
+						}
+					},
+				},
+				Dissolve1_1_1_2 = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					Inputs = {
+						Mix = Input { Value = 0, },
+						Background = Input {
+							SourceOp = "Merge2_3_1_2_2",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Transform6_1_1_2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 67, 114.087 } },
+				},
+				Transform6_1_1_2 = Transform {
+					CtrlWShown = false,
+					CustomData = { Path = { Map = { ["Setting:"] = "FusionTemplates:\\CUSTOM\\motion graphics\\" } } },
+					Inputs = {
+						Size = Input { Value = 0.14, },
+						Edges = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "sRender5_1_1_2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -62.2734, 83.6612 } },
+				},
+				sRender5_1_1_2 = sRender {
+					CtrlWShown = false,
+					CustomData = { Path = { Map = { ["Setting:"] = "FusionTemplates:\\CUSTOM\\motion graphics\\" } } },
+					Inputs = {
+						GlobalOut = Input { Value = 23, },
+						Width = Input { Value = 330, },
+						Height = Input { Value = 330, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Input = Input {
+							SourceOp = "sNGon2_1_1_2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -66.6105, 45.3192 } },
+				},
+				sNGon2_1_1_2 = sNGon {
+					CtrlWShown = false,
+					CustomData = { Path = { Map = { ["Setting:"] = "FusionTemplates:\\CUSTOM\\motion graphics\\" } } },
+					Inputs = {
+						Sides = Input { Value = 100, },
+						Width = Input { Value = 0.173, },
+						Height = Input {
+							Value = 0.173,
+							Expression = "Width",
+						},
+						Angle = Input { Value = 90, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -67.6825, 7.99715 } },
+				}
+			},
+			Colors = { TileColor = { R = 0.584313725490196, G = 0.294117647058824, B = 0.803921568627451 }, },
+			UserControls = ordered() {
+				Resolution = {
+					LBLC_DropDownButton = true,
+					LINKS_ID = "Resolution",
+					LBLC_NumInputs = 3,
+					INP_UserData3 = 999,
+					LINKS_Name = "Resolution",
+					ICS_ControlPage = "Controls",
+					LINKID_DataType = "Number",
+					INPID_InputControl = "LabelControl",
+					INP_Passive = true,
+					INP_Default = 1,
+					IC_Visible = true,
+				},
+				Input11 = {
+					CBC_TriState = false,
+					INP_Integer = true,
+					ICS_ControlPage = "Controls",
+					INP_MaxScale = 1,
+					INP_Default = 0,
+					INP_MinScale = 0,
+					INP_MinAllowed = 0,
+					LINKID_DataType = "",
+					INP_MaxAllowed = 1,
+					INPID_InputControl = "CheckboxControl",
+					LINKS_Name = "Custom Resolution Switch"
+				},
+				Input7 = {
+					INP_MaxAllowed = 32767,
+					INP_Integer = true,
+					ICS_ControlPage = "Controls",
+					IC_Steps = 4097,
+					INP_MaxScale = 4096,
+					INP_Default = 330,
+					INP_MinScale = 1,
+					INP_MinAllowed = 1,
+					LINKID_DataType = "Number",
+					INPID_InputControl = "SliderControl",
+					LINKS_Name = "Resolution Width"
+				},
+				Input8 = {
+					INP_MaxAllowed = 32767,
+					INP_Integer = true,
+					ICS_ControlPage = "Controls",
+					IC_Steps = 4097,
+					INP_MaxScale = 4096,
+					INP_Default = 330,
+					INP_MinScale = 2,
+					INP_MinAllowed = 2,
+					LINKID_DataType = "Number",
+					INPID_InputControl = "SliderControl",
+					LINKS_Name = "Resolution Height"
+				},
+				Shape_Control = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = false,
+					LBLC_DropDownButton = true,
+					ICS_ControlPage = "Controls",
+					LBLC_NumInputs = 6,
+					INP_MaxScale = 1,
+					INP_Default = 1,
+					INP_MinScale = 0,
+					INP_MinAllowed = -1000000,
+					LINKID_DataType = "Number",
+					INP_Passive = true,
+					INPID_InputControl = "LabelControl",
+					LINKS_Name = "Shape Control"
+				},
+				Input1 = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = true,
+					ICS_ControlPage = "Controls",
+					INP_MaxScale = 20,
+					INP_Default = 100,
+					INP_MinScale = 2,
+					INP_MinAllowed = 2,
+					LINKID_DataType = "Number",
+					INPID_InputControl = "SliderControl",
+					LINKS_Name = "Sides"
+				},
+				Input2 = {
+					CBC_TriState = false,
+					INP_Integer = false,
+					ICS_ControlPage = "Controls",
+					INP_MaxScale = 1,
+					INP_Default = 1,
+					INP_MinScale = 0,
+					INP_MinAllowed = 0,
+					LINKID_DataType = "Number",
+					INP_MaxAllowed = 1,
+					INPID_InputControl = "CheckboxControl",
+					LINKS_Name = "Solid"
+				},
+				Input3 = {
+					INP_MaxAllowed = 1,
+					INP_Integer = false,
+					ICS_ControlPage = "Controls",
+					INP_MaxScale = 0.200000002980232,
+					INP_MinScale = -0.200000002980232,
+					INP_MinAllowed = -1,
+					LINKID_DataType = "Number",
+					INPID_InputControl = "SliderControl",
+					LINKS_Name = "Border Width"
+				},
+				Input4 = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = false,
+					ICS_ControlPage = "Controls",
+					INP_MaxScale = 2,
+					PC_ControlID = 0,
+					INP_Default = 0.100000001490116,
+					INP_MinScale = 0,
+					INP_MinAllowed = 0,
+					LINKID_DataType = "Number",
+					PC_ControlGroup = 1,
+					INPID_InputControl = "SliderControl",
+					INPID_PreviewControl = "EllipseControl",
+					LINKS_Name = "Width"
+				},
+				Input5 = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = false,
+					ICS_ControlPage = "Controls",
+					INP_MaxScale = 2,
+					PC_ControlID = 1,
+					INP_Default = 0.100000001490116,
+					INP_MinScale = 0,
+					INP_MinAllowed = 0,
+					LINKID_DataType = "Number",
+					PC_ControlGroup = 1,
+					INPID_InputControl = "SliderControl",
+					INPID_PreviewControl = "EllipseControl",
+					LINKS_Name = "Height"
+				},
+				Input6 = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = false,
+					ICS_ControlPage = "Controls",
+					INP_MaxScale = 360,
+					INP_Default = 90,
+					INP_MinScale = 0,
+					INP_MinAllowed = -1000000,
+					LINKID_DataType = "Number",
+					INPID_PreviewControl = "AngleControl",
+					INPID_InputControl = "ScrewControl",
+					LINKS_Name = "Angle"
+				},
+				Pattern_Controls = {
+					LBLC_DropDownButton = true,
+					LINKS_ID = "Pattern_Controls",
+					LBLC_NumInputs = 2,
+					INP_UserData3 = 999,
+					LINKS_Name = "Pattern Controls",
+					ICS_ControlPage = "Controls",
+					LINKID_DataType = "Number",
+					INPID_InputControl = "LabelControl",
+					INP_Passive = true,
+					INP_Default = 1,
+					IC_Visible = true,
+				},
+				Input9 = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = false,
+					INPID_InputControl = "SliderControl",
+					ICS_ControlPage = "Controls",
+					INP_MaxScale = 5,
+					INP_Default = 0.25,
+					INP_MinScale = 0,
+					INPID_PreviewControl = "RectangleControl",
+					INP_MinAllowed = 0,
+					LINKID_DataType = "Number",
+					PC_ControlGroup = 2,
+					ICD_Center = 1,
+					PC_ControlID = 0,
+					LINKS_Name = "Pattern Size"
+				},
+				Input10 = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = false,
+					INPID_InputControl = "ScrewControl",
+					IC_Steps = 3601,
+					INP_MaxScale = 360,
+					INP_Default = 0,
+					INPID_PreviewControl = "AngleControl",
+					INP_MinAllowed = -1000000,
+					LINKID_DataType = "Number",
+					ICS_ControlPage = "Controls",
+					INP_MinScale = 0,
+					LINKS_Name = "Angle"
+				}
+			}
+		}
+	}
+}

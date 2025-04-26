@@ -1,0 +1,874 @@
+{
+	Tools = ordered() {
+		pj_Distort = GroupOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\PeeJ PACK TOOLS FINAL\\Free\\" } }, },
+			Inputs = ordered() {
+				RGBMultiplier = Input { Value = 0.535, },
+				Comments = Input { Value = "Must use SwitchFuse from Reactor\n\nI did not make the distort\nI added the warp pin control\nI also added Vizion's mirroed edges displace.\n\nhttps://github.com/fabiof17/Fusion-tools/blob/master/Macros/PxF/PxF_Distort/PxF_Distort.setting", },
+				WarpPin1 = Input { Value = { 0.997043918918919, 0.994744744744745 }, },
+				WarpPinSoftEdge = Input { Value = 0, },
+				Input1 = InstanceInput {
+					SourceOp = "iDistort_1_1_1_1",
+					Source = "ProcessRed",
+					Name = "Red",
+					Default = 1,
+				},
+				Input2 = InstanceInput {
+					SourceOp = "iDistort_1_1_1_1",
+					Source = "ProcessGreen",
+					Name = "Green",
+					Default = 1,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "iDistort_1_1_1_1",
+					Source = "ProcessBlue",
+					Name = "Blue",
+					Default = 1,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "iDistort_1_1_1_1",
+					Source = "ProcessAlpha",
+					Name = "Alpha",
+					Default = 1,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "multiply1_1_1_1_1",
+					Source = "Amount",
+					Default = 0.00800000037997961,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Fine_1_1_1_1",
+					Source = "Fine",
+					Default = 1,
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Blur_1_1_1_1_1",
+					Source = "BlurLens",
+					Name = "Blur Lens",
+					MinScale = 9.99999975e-05,
+					Default = 1,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "SwitchFuse1_1_1_1_1",
+					Source = "LensChannel",
+					Name = "Lens Channel",
+					Default = 0,
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "Transform4_1",
+					Source = "Input",
+					Name = "Img",
+				},
+				MainInput2 = InstanceInput {
+					SourceOp = "PipeRouter1_4_1_1_1_1",
+					Source = "Input",
+					Name = "Lens",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Merge1_3_1_1_1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 355.522, 48.1747 },
+				Flags = {
+					AllowPan = false,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 1135, 1652.4, 567.5, 93.7969 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { -30.4054, -5.75668 }
+			},
+			Tools = ordered() {
+				PipeRouter2 = PipeRouter {
+					CtrlWShown = false,
+					Inputs = {
+						Input = Input {
+							SourceOp = "Dissolve1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { 250.375, 22.7863 } },
+				},
+				Dissolve1 = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					CtrlWShown = false,
+					Inputs = {
+						Mix = Input {
+							Value = 0,
+							Expression = "iif(pj_Distort.UseForeground == 1,1,0)",
+						},
+						Background = Input {
+							SourceOp = "Transform4_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PipeRouter1_4_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 23.544, 13.001 } },
+				},
+				Transform4_1 = Transform {
+					CtrlWShown = false,
+					Inputs = {
+						Edges = Input { Value = 3, },
+						Input = Input {
+							SourceOp = "MediaIn1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -263.79, 15.429 } },
+				},
+				Rectangle1_2_1 = RectangleMask {
+					CtrlWShown = false,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						Invert = Input { Value = 1, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Width = Input { Value = 0.95, },
+						Height = Input { Value = 0.95, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 499.116, 697.49 } },
+				},
+				MatteControl2_2_1 = MatteControl {
+					CtrlWShown = false,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						["Garbage.Matte"] = Input {
+							SourceOp = "Polygon1_1_1_1",
+							Source = "Mask",
+						},
+						Background = Input {
+							SourceOp = "ChannelBooleans1_2_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 253.782, 715.066 } },
+				},
+				Crop9_2_1_1_1 = Crop {
+					CtrlWShown = false,
+					Inputs = {
+						XOffset = Input { Value = -1920, },
+						YOffset = Input { Value = -1080, },
+						XSize = Input {
+							Value = 5760,
+							Expression = "self.Input.Width*3",
+						},
+						YSize = Input {
+							Value = 3240,
+							Expression = "self.Input.Height*3",
+						},
+						KeepCentered = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "Fine_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -131.18, 920.171 } },
+				},
+				Crop9_1_1_1_1 = Crop {
+					CtrlWShown = false,
+					Inputs = {
+						XOffset = Input { Value = 1920, },
+						YOffset = Input { Value = 1080, },
+						XSize = Input {
+							Value = 1920,
+							Expression = "self.Input.Width/3",
+						},
+						YSize = Input {
+							Value = 1080,
+							Expression = "self.Input.Height/3",
+						},
+						KeepCentered = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "iDistort_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -247.802, 966.734 } },
+				},
+				Displace7_1_1_1 = Displace {
+					CtrlWShown = false,
+					ViewInfo = OperatorInfo { Pos = { -141.152, 761.913 } },
+				},
+				Transform43_1_1_1 = Transform {
+					CtrlWShown = false,
+					Inputs = {
+						Edges = Input { Value = 3, },
+						Input = Input {
+							SourceOp = "PipeRouter4_3_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -262.654, 812.057 } },
+				},
+				Crop9_3_1_1 = Crop {
+					CtrlWShown = false,
+					Inputs = {
+						XOffset = Input { Value = -1920, },
+						YOffset = Input { Value = -1080, },
+						XSize = Input {
+							Value = 5760,
+							Expression = "self.Input.Width*3",
+						},
+						YSize = Input {
+							Value = 3240,
+							Expression = "self.Input.Height*3",
+						},
+						KeepCentered = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "Transform43_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -266.912, 875.096 } },
+				},
+				Polygon1_1_1_1 = PolylineMask {
+					DrawMode = "InsertAndModify",
+					DrawMode2 = "InsertAndModify",
+					CtrlWShown = false,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						SoftEdge = Input { Expression = "pj_Distort.WarpPinSoftEdge", },
+						Invert = Input { Value = 1, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Polyline = Input {
+							Value = Polyline {
+								Closed = true,
+								Points = {
+									{ Linear = true, X = -0.5, Y = 0.494744744744745, LX = 0.332347972972973, LY = 0, RX = 0, RY = -0.331581581581582, PublishID = "Point0" },
+									{ Linear = true, X = -0.5, Y = -0.5, LX = 0, LY = 0.331581581581582, RX = 0.332347972972973, RY = 0, PublishID = "Point1" },
+									{ Linear = true, X = 0.497043918918919, Y = -0.5, LX = -0.332347972972973, LY = 0, RX = 0, RY = 0.331581581581582, PublishID = "Point2" },
+									{ Linear = true, X = 0.497043918918919, Y = 0.494744744744745, LX = 0, LY = -0.331581581581582, RX = -0.332347972972973, RY = 0, PublishID = "Point3" }
+								}
+							},
+						},
+						Polyline2 = Input {
+							Value = Polyline {
+							},
+							Disabled = true,
+						},
+						Point0 = Input {
+							Value = { 0, 0.994744744744745 },
+							Expression = "Point(Point1.X, Point3.Y)",
+						},
+						Point1 = Input {
+							Value = { 0, 0 },
+							Expression = "pj_Distort.WarpPin2",
+						},
+						Point2 = Input {
+							Value = { 0.997043918918919, 0 },
+							Expression = "Point(Point3.X, Point1.Y)",
+						},
+						Point3 = Input {
+							Value = { 0.997043918918919, 0.994744744744745 },
+							Expression = "pj_Distort.WarpPin1",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 423.717, 716.761 } },
+				},
+				BrightnessContrast1_1_1_1 = BrightnessContrast {
+					CtrlWShown = false,
+					CurrentSettings = 2,
+					CustomData = {
+						Settings = {
+							[1] = {
+								Tools = ordered() {
+									BrightnessContrast1_1 = BrightnessContrast { Inputs = { Low = Input { Value = -0.16 }, ClipBlack = Input { Value = 1 }, Input = Input { SourceOp = "Fine_1_1", Source = "Output" }, High = Input { Value = 1.35 }, EffectMask = Input { SourceOp = "Polygon1_1", Source = "Mask" }, ClipWhite = Input { Value = 1 } }, CtrlWZoom = false, ViewInfo = OperatorInfo { Pos = { -57.3239, 911.426 } }, CustomData = {
+										} }
+								}
+							}
+						}
+					},
+					Inputs = {
+						ClipBlack = Input { Value = 1, },
+						ClipWhite = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -18.0459, 939.14 } },
+				},
+				PipeRouter1_4_1_1_1_1 = PipeRouter {
+					CtrlWShown = false,
+					ViewInfo = PipeRouterInfo { Pos = { 3.07403, -30.6393 } },
+				},
+				PipeRouter5_1_1_1_1 = PipeRouter {
+					CtrlWShown = false,
+					Inputs = {
+						Input = Input {
+							SourceOp = "PipeRouter4_3_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { -523, 139.756 } },
+				},
+				PipeRouter4_3_1_1_1_1 = PipeRouter {
+					CtrlWShown = false,
+					Inputs = {
+						Input = Input {
+							SourceOp = "Transform4_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { -248, 139.756 } },
+				},
+				Green_1_1_1_1 = ChannelBoolean {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						ToRed = Input { Value = 15, },
+						ToGreen = Input { Value = 15, },
+						ToBlue = Input { Value = 15, },
+						ToAlpha = Input { Value = 6, },
+						Background = Input {
+							SourceOp = "PipeRouter2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 137, 139.756 } },
+				},
+				Alpha_3_1_1_1_1 = ChannelBoolean {
+					CtrlWZoom = false,
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						ToRed = Input { Value = 15, },
+						ToGreen = Input { Value = 15, },
+						ToBlue = Input { Value = 15, },
+						ToAlpha = Input { Value = 8, },
+						Background = Input {
+							SourceOp = "PipeRouter2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 522, 139.756 } },
+				},
+				Red_1_1_1_1 = ChannelBoolean {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						ToRed = Input { Value = 15, },
+						ToGreen = Input { Value = 15, },
+						ToBlue = Input { Value = 15, },
+						ToAlpha = Input { Value = 5, },
+						Background = Input {
+							SourceOp = "PipeRouter2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -28, 139.756 } },
+				},
+				Blue_1_1_1_1 = ChannelBoolean {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						ToRed = Input { Value = 15, },
+						ToGreen = Input { Value = 15, },
+						ToBlue = Input { Value = 15, },
+						ToAlpha = Input { Value = 7, },
+						Background = Input {
+							SourceOp = "PipeRouter2",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 357, 139.756 } },
+				},
+				SwitchFuse1_1_1_1_1 = Fuse.Switch {
+					CtrlWShown = false,
+					Inputs = {
+						Which = Input {
+							Value = 1,
+							Expression = "LensChannel+1",
+						},
+						Input1 = Input {
+							SourceOp = "Red_1_1_1_1",
+							Source = "Output",
+						},
+						Input2 = Input {
+							SourceOp = "Green_1_1_1_1",
+							Source = "Output",
+						},
+						Input3 = Input {
+							SourceOp = "Blue_1_1_1_1",
+							Source = "Output",
+						},
+						Input4 = Input {
+							SourceOp = "Alpha_3_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 247, 271.756 } },
+					UserControls = ordered() { LensChannel = { { CCS_AddString = "Red" }, { CCS_AddString = "Green" }, { CCS_AddString = "Blue" }, { CCS_AddString = "Alpha" }, INP_Integer = false, LINKID_DataType = "Number", CC_LabelPosition = "Horizontal", INPID_InputControl = "ComboControl", LINKS_Name = "LensChannel", } },
+					Version = 172
+				},
+				Position1_1_1_1_1 = Transform {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Center = Input {
+							Value = { 0.499479166666667, 0.5 },
+							Expression = "Point(  ((Width/2) -1) /Width , 0.5)",
+						},
+						UseSizeAndAspect = Input { Value = 0, },
+						FilterMethod = Input { Value = 0, },
+						ReferenceSize = Input { Value = 1, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "SwitchFuse1_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 27, 370.756 } },
+				},
+				Position2_1_1_1_1 = Transform {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Center = Input {
+							Value = { 0.5, 0.499074074074074 },
+							Expression = "Point( 0.5 , ((Height/2) -1) /Height)",
+						},
+						FilterMethod = Input { Value = 0, },
+						ReferenceSize = Input { Value = 1, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "SwitchFuse1_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 412, 370.756 } },
+				},
+				minus1_1_1_1_1_1 = ChannelBoolean {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Operation = Input { Value = 2, },
+						Background = Input {
+							SourceOp = "Position1_1_1_1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "SwitchFuse1_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 82, 502.756 } },
+				},
+				minus2_1_1_1_1_1 = ChannelBoolean {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Operation = Input { Value = 2, },
+						Background = Input {
+							SourceOp = "Position2_1_1_1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "SwitchFuse1_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 412, 502.756 } },
+				},
+				ChannelBooleans1_2_1_1_1_1 = ChannelBoolean {
+					CtrlWShown = false,
+					Inputs = {
+						ToRed = Input { Value = 8, },
+						ToGreen = Input { Value = 3, },
+						ToAlpha = Input { Value = 8, },
+						Background = Input {
+							SourceOp = "minus1_1_1_1_1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "minus2_1_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 247, 667.756 } },
+				},
+				Blur_1_1_1_1_1 = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Gaussian" }, },
+						XBlurSize = Input {
+							Value = 20.625,
+							Expression = "BlurLens*(Blur_1_1_1_1_1.Input.Width/2048)*2.75",
+						},
+						Input = Input {
+							SourceOp = "MatteControl2_2_1",
+							Source = "Output",
+						},
+						BlurLens = Input { Value = 8, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 245.667, 770.726 } },
+					UserControls = ordered() { BlurLens = { INP_MaxAllowed = 100, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 100, INP_Default = 1, INP_MinScale = 9.99999974737875e-05, INP_MinAllowed = 9.99999974737875e-05, LINKID_DataType = "Number", LINKS_Name = "BlurLens", } }
+				},
+				multiply1_1_1_1_1 = Custom {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						LUTIn1 = Input {
+							SourceOp = "multiply1_1_1_1_1LUTIn1",
+							Source = "Value",
+						},
+						LUTIn2 = Input {
+							SourceOp = "multiply1_1_1_1_1LUTIn2",
+							Source = "Value",
+						},
+						LUTIn3 = Input {
+							SourceOp = "multiply1_1_1_1_1LUTIn3",
+							Source = "Value",
+						},
+						LUTIn4 = Input {
+							SourceOp = "multiply1_1_1_1_1LUTIn4",
+							Source = "Value",
+						},
+						Setup1 = Input {
+							Value = "8",
+							Expression = "Blur_1_1_1_1_1.BlurLens",
+						},
+						Setup2 = Input { Value = "S1^0.395", },
+						Setup3 = Input {
+							Value = "1381.248",
+							Expression = "Amount*Position1_1_1_1_1.Width* 3.597",
+						},
+						Setup4 = Input { Value = "S2*S3", },
+						Intermediate1 = Input { Value = "getr1b(x,y)", },
+						Intermediate2 = Input { Value = "getg1b(x,y)", },
+						Intermediate3 = Input { Value = "getb1b(x,y)", },
+						RedExpression = Input { Value = "I1*S3", },
+						GreenExpression = Input { Value = "I2*S3", },
+						BlueExpression = Input { Value = "I3*S3", },
+						Image1 = Input {
+							SourceOp = "Blur_1_1_1_1_1",
+							Source = "Output",
+						},
+						Amount = Input { Value = 0.2, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 137, 832.756 } },
+					UserControls = ordered() { Amount = { INP_MaxAllowed = 2, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 2, INP_Default = 0.00800000037997961, INP_MinScale = -2, INP_MinAllowed = -2, LINKID_DataType = "Number", LINKS_Name = "Amount", } }
+				},
+				multiply1_1_1_1_1LUTIn4 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 204, Green = 204, Blue = 204 },
+					CtrlWZoom = false,
+				},
+				multiply1_1_1_1_1LUTIn3 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 0, Blue = 204 },
+					CtrlWZoom = false,
+				},
+				multiply1_1_1_1_1LUTIn2 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 204, Blue = 0 },
+					CtrlWZoom = false,
+				},
+				multiply1_1_1_1_1LUTIn1 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 204, Green = 0, Blue = 0 },
+					CtrlWZoom = false,
+				},
+				multiply2_1_1_1_1 = Custom {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						LUTIn1 = Input {
+							SourceOp = "multiply2_1_1_1_1LUTIn1",
+							Source = "Value",
+						},
+						LUTIn2 = Input {
+							SourceOp = "multiply2_1_1_1_1LUTIn2",
+							Source = "Value",
+						},
+						LUTIn3 = Input {
+							SourceOp = "multiply2_1_1_1_1LUTIn3",
+							Source = "Value",
+						},
+						LUTIn4 = Input {
+							SourceOp = "multiply2_1_1_1_1LUTIn4",
+							Source = "Value",
+						},
+						Setup1 = Input {
+							Value = "8",
+							Expression = "Blur_1_1_1_1_1.BlurLens",
+						},
+						Setup2 = Input { Value = "S1^0.395", },
+						Setup3 = Input {
+							Value = "138.1248",
+							Expression = "multiply1_1_1_1_1.Amount*Position1_1_1_1_1.Width* 3.597 / 10",
+						},
+						Setup4 = Input { Value = "S2*S3", },
+						Intermediate1 = Input { Value = "getr1b(x,y)", },
+						Intermediate2 = Input { Value = "getg1b(x,y)", },
+						Intermediate3 = Input { Value = "getb1b(x,y)", },
+						RedExpression = Input { Value = "I1*S3", },
+						GreenExpression = Input { Value = "I2*S3", },
+						BlueExpression = Input { Value = "I3*S3", },
+						Image1 = Input {
+							SourceOp = "Blur_1_1_1_1_1",
+							Source = "Output",
+						},
+						Amount = Input { Value = 0.008, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 357, 832.756 } },
+					UserControls = ordered() { Amount = { INP_MaxAllowed = 2, INP_Integer = false, INPID_InputControl = "SliderControl", INP_MaxScale = 2, INP_Default = 0.00800000037997961, INP_MinScale = -2, INP_MinAllowed = -2, LINKID_DataType = "Number", LINKS_Name = "Amount", } }
+				},
+				multiply2_1_1_1_1LUTIn4 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 204, Green = 204, Blue = 204 },
+					CtrlWZoom = false,
+				},
+				multiply2_1_1_1_1LUTIn3 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 0, Blue = 204 },
+					CtrlWZoom = false,
+				},
+				multiply2_1_1_1_1LUTIn2 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 204, Blue = 0 },
+					CtrlWZoom = false,
+				},
+				multiply2_1_1_1_1LUTIn1 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 204, Green = 0, Blue = 0 },
+					CtrlWZoom = false,
+				},
+				Fine_1_1_1_1 = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Mix = Input { Expression = "Fine", },
+						Background = Input {
+							SourceOp = "multiply1_1_1_1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "multiply2_1_1_1_1",
+							Source = "Output",
+						},
+						Fine = Input { Value = 1, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 247, 898.756 } },
+					UserControls = ordered() { Fine = { CBC_TriState = false, INP_Integer = false, LINKID_DataType = "Number", INPID_InputControl = "CheckboxControl", LINKS_Name = "Fine", } }
+				},
+				iDistort_1_1_1_1 = Displace {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Type = Input { Value = 1, },
+						XRefraction = Input {
+							Value = 0.0146484375,
+							Expression = "Position1_1_1_1_1.Width/4096/32",
+						},
+						YRefraction = Input {
+							Value = 0.0146484375,
+							Expression = "Position1_1_1_1_1.Width/4096/32",
+						},
+						Input = Input {
+							SourceOp = "Crop9_3_1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Crop9_2_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -249.886, 930.042 } },
+				},
+				ChannelBooleans1_1_1_1_1_1_1 = ChannelBoolean {
+					CtrlWShown = false,
+					Inputs = {
+						ToRed = Input { Value = 4, },
+						ToGreen = Input { Value = 4, },
+						ToBlue = Input { Value = 4, },
+						Background = Input {
+							SourceOp = "PipeRouter6_1_1_1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "CustomTool1_6_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 247, 1525.76 } },
+				},
+				CustomTool1_6_1_1_1_1 = Custom {
+					CtrlWShown = false,
+					Inputs = {
+						LUTIn1 = Input {
+							SourceOp = "CustomTool1_6_1_1_1_1LUTIn1",
+							Source = "Value",
+						},
+						LUTIn2 = Input {
+							SourceOp = "CustomTool1_6_1_1_1_1LUTIn2",
+							Source = "Value",
+						},
+						LUTIn3 = Input {
+							SourceOp = "CustomTool1_6_1_1_1_1LUTIn3",
+							Source = "Value",
+						},
+						LUTIn4 = Input {
+							SourceOp = "CustomTool1_6_1_1_1_1LUTIn4",
+							Source = "Value",
+						},
+						Intermediate1 = Input { Value = "getr1b(x,y)", },
+						Intermediate2 = Input { Value = "getg1b(x,y)", },
+						AlphaExpression = Input { Value = "if(I1==0,I2==0,1,I1)", },
+						Image1 = Input {
+							SourceOp = "Fine_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 247, 1261.76 } },
+				},
+				CustomTool1_6_1_1_1_1LUTIn4 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 204, Green = 204, Blue = 204 },
+					CtrlWZoom = false,
+				},
+				CustomTool1_6_1_1_1_1LUTIn3 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 0, Blue = 204 },
+					CtrlWZoom = false,
+				},
+				CustomTool1_6_1_1_1_1LUTIn2 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 0, Green = 204, Blue = 0 },
+					CtrlWZoom = false,
+				},
+				CustomTool1_6_1_1_1_1LUTIn1 = LUTBezier {
+					KeyColorSplines = {
+						[0] = {
+							[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+							[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+						}
+					},
+					SplineColor = { Red = 204, Green = 0, Blue = 0 },
+					CtrlWZoom = false,
+				},
+				PipeRouter6_1_1_1_1 = PipeRouter {
+					CtrlWShown = false,
+					Inputs = {
+						Input = Input {
+							SourceOp = "PipeRouter5_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = PipeRouterInfo { Pos = { -523, 1261.76 } },
+				},
+				CopyBBox_1_1_1_1 = SetDomain {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Input = Input {
+							SourceOp = "Crop9_1_1_1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PipeRouter6_1_1_1_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -248, 1261.76 } },
+				},
+				Merge1_3_1_1_1_1 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "CopyBBox_1_1_1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "ChannelBooleans1_1_1_1_1_1_1",
+							Source = "Output",
+						},
+						SubtractiveAdditive = Input { Value = 0, },
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -248, 1525.76 } },
+				}
+			},
+			UserControls = ordered() { EdgeControls = { LBLC_DropDownButton = true, LINKS_ID = "EdgeControls", LBLC_NumInputs = 3, INP_Default = 1, LINKS_Name = "Edge Controls", ICS_ControlPage = "Controls", LINKID_DataType = "Number", INP_UserData3 = 999, INP_Passive = true, INPID_InputControl = "LabelControl", IC_Visible = true, }, WarpPin1 = { OFCD_DisplayYScale = 1, ICS_ControlPage = "Controls", CHC_Style = "NormalCross", INP_DefaultX = 1, INPID_PreviewControl = "CrosshairControl", INP_DefaultY = 1, LINKID_DataType = "Point", OFCD_DisplayXScale = 1, INPID_InputControl = "OffsetControl", LINKS_Name = "WarpPin1", }, WarpPin2 = { OFCD_DisplayYScale = 1, ICS_ControlPage = "Controls", CHC_Style = "NormalCross", INP_DefaultX = 0, INPID_PreviewControl = "CrosshairControl", INP_DefaultY = 0, LINKID_DataType = "Point", OFCD_DisplayXScale = 1, INPID_InputControl = "OffsetControl", LINKS_Name = "WarpPin2", }, WarpPinSoftEdge = { INP_MaxAllowed = 1000000, INP_Integer = false, ICS_ControlPage = "Controls", INP_MaxScale = 1, INP_Default = 0.0500000007450581, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", INPID_InputControl = "SliderControl", LINKS_Name = "WarpPin Soft Edge" }, UseForeground = { CBC_TriState = false, INP_Integer = false, LINKID_DataType = "Number", ICS_ControlPage = "Controls", INPID_InputControl = "CheckboxControl", LINKS_Name = "Use Foreground", } }
+		}
+	}
+}

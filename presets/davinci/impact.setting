@@ -1,0 +1,471 @@
+{
+	Tools = ordered() {
+		S_WarpChroma1 = ofx.com.genarts.sapphire.Distort.S_WarpChroma {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] EDIT LIKE APIE\\Impacts\\"
+					}
+				},
+			},
+			Inputs = {
+				Blend = Input {
+					SourceOp = "S_WarpChroma1Blend",
+					Source = "Value",
+				},
+				LoadPreset = Input { Value = 0, },
+				SavePreset = Input { Value = 0, },
+				EditMocha = Input { Value = 0, },
+				mocha_project = Input { Value = "{\n	\"type\":	\"mocha_data\",\n	\"ui_frame_offset\":	0,\n	\"value\":	\"\"\n}", },
+				group_0 = Input { Value = 0, },
+				blur_mocha = Input { Value = 0, },
+				mocha_opacity = Input { Value = 1, },
+				invert_mocha = Input { Value = 0, },
+				resize_mocha = Input { Value = 1, },
+				resize_rel_x = Input { Value = 1, },
+				resize_rel_y = Input { Value = 1, },
+				shift_mocha_x = Input { Value = 0, },
+				shift_mocha_y = Input { Value = 0, },
+				bypass_mocha = Input { Value = 0, },
+				show_mocha_only = Input { Value = 0, },
+				combine_masks = Input { Value = 0, },
+				steps = Input { Value = 5, },
+				center = Input { Value = { 0.5, 0.5 }, },
+				from_z_dist = Input { Value = 0.970000046072528, },
+				from_rotate = Input { Value = 0, },
+				from_shift_x = Input { Value = 0, },
+				from_shift_y = Input { Value = 0, },
+				to_z_dist = Input { Value = 1, },
+				to_rotate = Input { Value = 0, },
+				to_shift_x = Input { Value = 0, },
+				to_shift_y = Input { Value = 0, },
+				warp_amount = Input { Value = 0.500000023748726, },
+				brightness = Input { Value = 1, },
+				color1Red = Input { Value = 1, },
+				color1Green = Input { Value = 0, },
+				color1Blue = Input { Value = 0, },
+				color2Red = Input { Value = 0, },
+				color2Green = Input { Value = 1, },
+				color2Blue = Input { Value = 0, },
+				color3Red = Input { Value = 0, },
+				color3Green = Input { Value = 0, },
+				color3Blue = Input { Value = 1, },
+				white_balance = Input { Value = 0, },
+				wrap_x = Input { Value = 0, },
+				wrap_y = Input { Value = 0, },
+				filter = Input { Value = 0, },
+				blur_mask = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				invert_mask = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				mask_use = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				["Crop Input"] = Input { Value = 1, },
+				crop_left = Input { Value = 0, },
+				crop_right = Input { Value = 0, },
+				crop_top = Input { Value = 0, },
+				crop_bottom = Input { Value = 0, },
+				ShowCenter = Input { Value = 1, },
+				ShowFromTransfm = Input { Value = 1, },
+				ShowToTransform = Input { Value = 1, },
+				ShowFromShift = Input { Value = 0, },
+				ShowToShift = Input { Value = 0, },
+				help = Input { Value = 0, },
+				["Enable GPU"] = Input { Value = 1, },
+				version = Input { Value = 11.01, },
+				version2 = Input { Value = 11017095, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 218.187, 52.4244 } },
+		},
+		S_WarpChroma1Blend = BezierSpline {
+			SplineColor = { Red = 205, Green = 205, Blue = 205 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] EDIT LIKE APIE\\Impacts\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 1, RH = { 13.33332, 0 }, Flags = { Linear = true } },
+				[40] = { 0, LH = { 26.66668, 0 } }
+			}
+		},
+		S_BlurMoCurves1 = ofx.com.genarts.sapphire.BlurSharpen.S_BlurMoCurves {
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] EDIT LIKE APIE\\Impacts\\"
+					}
+				},
+			},
+			Inputs = {
+				Source = Input {
+					SourceOp = "S_WarpChroma1",
+					Source = "Output",
+				},
+				Mode = Input { Value = 0, },
+				LoadPreset = Input { Value = 0, },
+				SavePreset = Input { Value = 0, },
+				EditMocha = Input { Value = 0, },
+				mocha_project = Input {
+					Value = Text {
+					},
+				},
+				group_0 = Input { Value = 0, },
+				blur_mocha = Input { Value = 0, },
+				mocha_opacity = Input { Value = 1, },
+				invert_mocha = Input { Value = 0, },
+				resize_mocha = Input { Value = 1, },
+				resize_rel_x = Input { Value = 1, },
+				resize_rel_y = Input { Value = 1, },
+				shift_mocha_x = Input { Value = 0, },
+				shift_mocha_y = Input { Value = 0, },
+				bypass_mocha = Input { Value = 0, },
+				show_mocha_only = Input { Value = 0, },
+				combine_masks = Input { Value = 0, },
+				center = Input { Value = { 0.5, 0.5 }, },
+				z_dist = Input {
+					SourceOp = "S_BlurMoCurves1ZDist",
+					Source = "Value",
+				},
+				rotate = Input { Value = 0, },
+				shift_x = Input { Value = 0, },
+				shift_y = Input { Value = 0, },
+				shutter_duration = Input { Value = 1, },
+				shutter_shift = Input { Value = 0, },
+				exposure_bias = Input { Value = 0.5, },
+				brightness = Input { Value = 1, },
+				wrap_x = Input { Value = 0, },
+				wrap_y = Input { Value = 0, },
+				blur_res = Input { Value = 0, },
+				subpixel = Input { Value = 1, },
+				mask_use = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				blur_mask = Input {
+					Value = 0.00625,
+					Disabled = true,
+				},
+				invert_mask = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				["Crop Input"] = Input { Value = 1, },
+				crop_left = Input { Value = 0, },
+				crop_right = Input { Value = 0, },
+				crop_top = Input { Value = 0, },
+				crop_bottom = Input { Value = 0, },
+				ShowCenter = Input { Value = 1, },
+				ShowTransform = Input { Value = 1, },
+				ShowShift = Input { Value = 0, },
+				help = Input { Value = 0, },
+				["Enable GPU"] = Input { Value = 1, },
+				version = Input { Value = 11.01, },
+				version2 = Input { Value = 14629838, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 344.524, 48.996 } },
+		},
+		S_BlurMoCurves1ZDist = BezierSpline {
+			SplineColor = { Red = 253, Green = 87, Blue = 199 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] EDIT LIKE APIE\\Impacts\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 0.911, RH = { 4.33333333333333, 0.934 }, Flags = { Linear = true } },
+				[13] = { 0.98, LH = { 8.66666666666667, 0.957 }, RH = { 22, 0.986666666666667 }, Flags = { Linear = true } },
+				[40] = { 1, LH = { 31, 0.993333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S_Shake1 = ofx.com.genarts.sapphire.Distort.S_Shake {
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] EDIT LIKE APIE\\Impacts\\"
+					}
+				},
+			},
+			Inputs = {
+				Source = Input {
+					SourceOp = "S_BlurMoCurves1",
+					Source = "Output",
+				},
+				Style = Input { Value = 0, },
+				LoadPreset = Input { Value = 0, },
+				SavePreset = Input { Value = 0, },
+				EditMocha = Input { Value = 0, },
+				mocha_project = Input {
+					Value = Text {
+					},
+				},
+				group_0 = Input { Value = 0, },
+				blur_mocha = Input { Value = 0, },
+				mocha_opacity = Input { Value = 1, },
+				invert_mocha = Input { Value = 0, },
+				resize_mocha = Input { Value = 1, },
+				resize_rel_x = Input { Value = 1, },
+				resize_rel_y = Input { Value = 1, },
+				shift_mocha_x = Input { Value = 0, },
+				shift_mocha_y = Input { Value = 0, },
+				bypass_mocha = Input { Value = 0, },
+				show_mocha_only = Input { Value = 0, },
+				combine_masks = Input { Value = 0, },
+				amplitude = Input {
+					SourceOp = "S_Shake1Amplitude",
+					Source = "Value",
+				},
+				frequency = Input {
+					SourceOp = "S_Shake1Frequency",
+					Source = "Value",
+				},
+				phase = Input { Value = 0, },
+				stillness = Input {
+					Value = 0.7,
+					Disabled = true,
+				},
+				twitch_frequency = Input {
+					Value = 2,
+					Disabled = true,
+				},
+				drift = Input {
+					Value = 0.3,
+					Disabled = true,
+				},
+				center_bias = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				z_dist = Input { Value = 1, },
+				motion_blur = Input { Value = 0, },
+				mo_blur_length = Input { Value = 1, },
+				seed = Input { Value = 0, },
+				wrap_x = Input { Value = 2, },
+				wrap_y = Input { Value = 2, },
+				group_1 = Input { Value = 0, },
+				x_rand_amp = Input { Value = 0, },
+				x_rand_freq = Input { Value = 1, },
+				x_wave_amp = Input { Value = 0, },
+				x_wave_freq = Input { Value = 0.5, },
+				x_phase = Input { Value = 0, },
+				group_2 = Input { Value = 0, },
+				y_rand_amp = Input { Value = 0, },
+				y_rand_freq = Input { Value = 1, },
+				y_wave_amp = Input { Value = 0, },
+				y_wave_freq = Input { Value = 0.5, },
+				y_phase = Input { Value = 0, },
+				group_3 = Input { Value = 0, },
+				z_rand_amp = Input { Value = 0, },
+				z_rand_freq = Input { Value = 1, },
+				z_wave_amp = Input { Value = 0, },
+				z_wave_freq = Input { Value = 0.5, },
+				z_phase = Input { Value = 0, },
+				group_4 = Input { Value = 1, },
+				tilt_rand_amp = Input { Value = 0, },
+				tilt_rand_freq = Input { Value = 1, },
+				tilt_wave_amp = Input { Value = 2.22, },
+				tilt_wave_freq = Input { Value = 0.576, },
+				tilt_phase = Input { Value = 0, },
+				group_5 = Input { Value = 0, },
+				red_amplitude = Input { Value = 1, },
+				green_amplitude = Input { Value = 1, },
+				blue_amplitude = Input { Value = 1, },
+				red_phase = Input { Value = 0, },
+				green_phase = Input { Value = 0, },
+				blue_phase = Input { Value = 0, },
+				RGB_randomness = Input { Value = 0, },
+				RGB_frequency = Input { Value = 2, },
+				mask_use = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				blur_mask = Input {
+					Value = 0.00625,
+					Disabled = true,
+				},
+				invert_mask = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				["Crop Input"] = Input { Value = 1, },
+				crop_left = Input { Value = 0, },
+				crop_right = Input { Value = 0, },
+				crop_top = Input { Value = 0, },
+				crop_bottom = Input { Value = 0, },
+				help = Input { Value = 0, },
+				["Enable GPU"] = Input { Value = 1, },
+				version = Input { Value = 11.01, },
+				version2 = Input { Value = 13302293, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 457.661, 50.7102 } },
+		},
+		S_Shake1Amplitude = BezierSpline {
+			SplineColor = { Red = 180, Green = 180, Blue = 255 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] EDIT LIKE APIE\\Impacts\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 1, RH = { 13.3333333333333, 0.666666666666667 }, Flags = { Linear = true } },
+				[40] = { 0, LH = { 26.6666666666667, 0.333333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		S_Shake1Frequency = BezierSpline {
+			SplineColor = { Red = 255, Green = 180, Blue = 180 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] EDIT LIKE APIE\\Impacts\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 8, RH = { 13.3333333333333, 6.69 }, Flags = { Linear = true } },
+				[40] = { 4.07, LH = { 26.6666666666667, 5.38 }, Flags = { Linear = true } }
+			}
+		},
+		S_DissolveShake1 = ofx.com.genarts.sapphire.Transitions.S_DissolveShake {
+			Inputs = {
+				From = Input {
+					SourceOp = "S_Shake1",
+					Source = "Output",
+				},
+				LoadPreset = Input { Value = 0, },
+				SavePreset = Input { Value = 0, },
+				dissolve_amount = Input { Value = 0.201, },
+				autotrans_keyframe_state = Input { Value = 1, },
+				dissolve_speed = Input { Value = 3, },
+				amplitude = Input {
+					SourceOp = "S_DissolveShake1Amplitude",
+					Source = "Value",
+				},
+				frequency = Input { Value = 17.18, },
+				motion_blur = Input { Value = 1, },
+				mo_blur_length = Input { Value = 1.961, },
+				seed = Input { Value = 0, },
+				wrap_x = Input { Value = 2, },
+				wrap_y = Input { Value = 2, },
+				group_0 = Input { Value = 1, },
+				x_rand_amp = Input { Value = 0, },
+				x_rand_freq = Input { Value = 1, },
+				x_wave_amp = Input { Value = 0.0428, },
+				x_wave_freq = Input { Value = 0.5, },
+				x_phase = Input { Value = 0, },
+				group_1 = Input { Value = 1, },
+				y_rand_amp = Input { Value = 0, },
+				y_rand_freq = Input { Value = 1, },
+				y_wave_amp = Input { Value = 0.02, },
+				y_wave_freq = Input { Value = 0.5, },
+				y_phase = Input { Value = 0, },
+				group_2 = Input { Value = 0, },
+				z_rand_amp = Input { Value = 0, },
+				z_rand_freq = Input { Value = 1, },
+				z_wave_amp = Input { Value = 0, },
+				z_wave_freq = Input { Value = 0.5, },
+				z_phase = Input { Value = 0, },
+				group_3 = Input { Value = 0, },
+				tilt_rand_amp = Input { Value = 0, },
+				tilt_rand_freq = Input { Value = 1, },
+				tilt_wave_amp = Input { Value = 0, },
+				tilt_wave_freq = Input { Value = 0.5, },
+				tilt_phase = Input { Value = 0, },
+				group_4 = Input { Value = 0, },
+				red_amplitude = Input { Value = 1, },
+				green_amplitude = Input { Value = 1, },
+				blue_amplitude = Input { Value = 1, },
+				red_phase = Input { Value = 0, },
+				green_phase = Input { Value = 0, },
+				blue_phase = Input { Value = 0, },
+				RGB_randomness = Input { Value = 0, },
+				RGB_frequency = Input { Value = 2, },
+				help = Input { Value = 0, },
+				["Enable GPU"] = Input { Value = 1, },
+				version = Input { Value = 11.01, },
+				version2 = Input { Value = 14124997, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 583.055, 49.8531 } },
+		},
+		S_DissolveShake1Amplitude = BezierSpline {
+			SplineColor = { Red = 180, Green = 180, Blue = 255 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 3.867, RH = { 3.666663, 3.867 }, Flags = { Linear = true } },
+				[11] = { 0, LH = { 7.333337, 0 } }
+			}
+		},
+		S_Flicker1 = ofx.com.genarts.sapphire.Time.S_Flicker {
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] EDIT LIKE APIE\\Impacts\\"
+					}
+				},
+			},
+			Inputs = {
+				Source = Input {
+					SourceOp = "S_DissolveShake1",
+					Source = "Output",
+				},
+				LoadPreset = Input { Value = 0, },
+				SavePreset = Input { Value = 0, },
+				amplitude = Input {
+					SourceOp = "S_Flicker1Amplitude",
+					Source = "Value",
+				},
+				rand_luma_amp = Input { Value = 1, },
+				rand_color_amp = Input { Value = 0, },
+				rand_freq = Input { Value = 30, },
+				group_0 = Input { Value = 1, },
+				wave_amp = Input { Value = 0, },
+				wave_freq = Input { Value = 5, },
+				wave_r_phase = Input { Value = 0, },
+				wave_g_phase = Input { Value = 0, },
+				wave_b_phase = Input { Value = 0, },
+				red_amp = Input { Value = 1, },
+				green_amp = Input { Value = 1, },
+				blue_amp = Input { Value = 1, },
+				brightness = Input { Value = 1, },
+				seed = Input { Value = 0.123, },
+				help = Input { Value = 0, },
+				["Enable GPU"] = Input { Value = 1, },
+				version = Input { Value = 11.01, },
+				version2 = Input { Value = 179242, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 697.134, 49.8531 } },
+		},
+		S_Flicker1Amplitude = BezierSpline {
+			SplineColor = { Red = 180, Green = 180, Blue = 255 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\KRY\\Desktop\\[NIKTO] EDIT LIKE APIE\\Impacts\\"
+					}
+				}
+			},
+			KeyFrames = {
+				[0] = { 0.4, RH = { 8.33333333333333, 0.266666666666667 }, Flags = { Linear = true } },
+				[25] = { 0, LH = { 16.6666666666667, 0.133333333333333 }, Flags = { Linear = true } }
+			}
+		}
+	},
+	ActiveTool = "S_WarpChroma1"
+}

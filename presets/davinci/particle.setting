@@ -1,0 +1,470 @@
+{
+	Tools = ordered() {
+		pRender1_1 = pRender {
+			CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\New Final Tools\\Free\\" } }, },
+			Inputs = {
+				_MotionBlurWarning = Input { Disabled = true, },
+				GlobalOut = Input { Value = 23, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				OutputMode = Input {
+					Value = FuID { "TwoD" },
+					Disabled = true,
+				},
+				["MaterialID.MaterialID"] = Input { Value = 1, },
+				["ObjectID.ObjectID"] = Input { Value = 1, },
+				Input = Input {
+					SourceOp = "pEmitter1_1",
+					Source = "Output",
+				},
+			},
+			ViewInfo = OperatorInfo { Pos = { 30.9127, -43.1162 } },
+		},
+		pEmitter1_1 = pEmitter {
+			ID = 165,
+			CtrlWZoom = false,
+			CurrentSettings = 6,
+			CustomData = {
+				Settings = {
+					[1] = {
+						Tools = ordered() {
+							pEmitter1_1 = pEmitter {
+								ID = 165,
+								CtrlWZoom = false,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } }, },
+								Inputs = {
+									RandomSeed = Input { Value = 4313, },
+									Number = Input {
+										SourceOp = "pEmitter1_1Number1",
+										Source = "Value",
+									},
+									VelocityControls = Input { Value = 1, },
+									Style = Input { Value = FuID { "ParticleStyleBlob" }, },
+									["ParticleStyleNGon.NGonType"] = Input { Value = 6, },
+									Region = Input { Value = FuID { "AllRgn" }, },
+									["ParticleStyle.SizeControls"] = Input { Value = 1, },
+									["ParticleStyle.Size"] = Input { Value = 2, },
+									["ParticleStyle.SizeVariance"] = Input { Value = 0.25, },
+									["ParticleStyle.SizeZScale"] = Input { Value = 0.5, },
+									["ParticleStyle.SizeOverLife"] = Input {
+										SourceOp = "pEmitter1_1SizeOverLife",
+										Source = "Value",
+									},
+									["ParticleStyle.FadeControls"] = Input { Value = 1, },
+									["ParticleStyle.BlurOverLife"] = Input {
+										SourceOp = "pEmitter1_1BlurOverLife2D",
+										Source = "Value",
+									},
+									["LineRgn.Start.X"] = Input { Value = -0.559756097560976, },
+									["LineRgn.Start.Y"] = Input { Value = -0.274926840262008, },
+									["LineRgn.End.X"] = Input { Value = -0.557317073170732, },
+									["LineRgn.End.Y"] = Input { Value = 0.26227919727175, },
+								},
+								ViewInfo = OperatorInfo { Pos = { 31.1157, -80.6025 } },
+							},
+							pEmitter1_1Number1 = BezierSpline {
+								SplineColor = { Red = 233, Green = 206, Blue = 78 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+								KeyFrames = {
+									[0] = { 200, RH = { 0.333333333333333, 133.333333333333 }, Flags = { Linear = true } },
+									[1] = { 0, LH = { 0.666666666666667, 66.6666666666667 }, Flags = { Linear = true } }
+								}
+							},
+							pEmitter1_1SizeOverLife = LUTBezier {
+								KeyColorSplines = {
+									[0] = {
+										[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+										[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+									}
+								},
+								SplineColor = { Red = 192, Green = 128, Blue = 64 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+							},
+							pEmitter1_1BlurOverLife2D = LUTBezier {
+								KeyColorSplines = {
+									[0] = {
+										[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+										[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+									}
+								},
+								SplineColor = { Red = 192, Green = 128, Blue = 64 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+							}
+						}
+					},
+					[2] = {
+						Tools = ordered() {
+							pEmitter1_1 = pEmitter {
+								ID = 165,
+								CtrlWZoom = false,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } }, },
+								Inputs = {
+									RandomSeed = Input { Value = 4313, },
+									Number = Input {
+										SourceOp = "pEmitter1_2Number",
+										Source = "Value",
+									},
+									VelocityControls = Input { Value = 1, },
+									Style = Input { Value = FuID { "ParticleStyleNGon" }, },
+									["ParticleStyleNGon.NGonType"] = Input { Value = 6, },
+									Region = Input { Value = FuID { "AllRgn" }, },
+									["ParticleStyle.SizeControls"] = Input { Value = 1, },
+									["ParticleStyle.Size"] = Input { Value = 2, },
+									["ParticleStyle.SizeVariance"] = Input { Value = 0.25, },
+									["ParticleStyle.SizeZScale"] = Input { Value = 0.5, },
+									["ParticleStyle.SizeOverLife"] = Input {
+										SourceOp = "pEmitter1_1SizeOverLife",
+										Source = "Value",
+									},
+									["ParticleStyle.FadeControls"] = Input { Value = 1, },
+									["ParticleStyle.BlurOverLife"] = Input {
+										SourceOp = "pEmitter1_1BlurOverLife2D",
+										Source = "Value",
+									},
+									["LineRgn.Start.X"] = Input { Value = -0.559756097560976, },
+									["LineRgn.Start.Y"] = Input { Value = -0.274926840262008, },
+									["LineRgn.End.X"] = Input { Value = -0.557317073170732, },
+									["LineRgn.End.Y"] = Input { Value = 0.26227919727175, },
+								},
+								ViewInfo = OperatorInfo { Pos = { 31.1157, -80.6025 } },
+							},
+							pEmitter1_2Number = BezierSpline {
+								SplineColor = { Red = 233, Green = 206, Blue = 78 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+								KeyFrames = {
+									[0] = { 200, RH = { 0.333333333333333, 133.333333333333 }, Flags = { Linear = true } },
+									[1] = { 0, LH = { 0.666666666666667, 66.6666666666667 }, Flags = { Linear = true } }
+								}
+							},
+							pEmitter1_1SizeOverLife = LUTBezier {
+								KeyColorSplines = {
+									[0] = {
+										[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+										[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+									}
+								},
+								SplineColor = { Red = 192, Green = 128, Blue = 64 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+							},
+							pEmitter1_1BlurOverLife2D = LUTBezier {
+								KeyColorSplines = {
+									[0] = {
+										[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+										[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+									}
+								},
+								SplineColor = { Red = 192, Green = 128, Blue = 64 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+							}
+						}
+					},
+					[3] = {
+						Tools = ordered() {
+							pEmitter1_1 = pEmitter {
+								ID = 165,
+								CtrlWZoom = false,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } }, },
+								Inputs = {
+									RandomSeed = Input { Value = 4313, },
+									Number = Input {
+										SourceOp = "pEmitter1_1Number",
+										Source = "Value",
+									},
+									VelocityControls = Input { Value = 1, },
+									RotationControls = Input { Value = 1, },
+									RotationZ = Input { Value = 45, },
+									Style = Input { Value = FuID { "ParticleStyleNGon" }, },
+									["ParticleStyleNGon.NGonType"] = Input { Value = 2, },
+									["ParticleStyleNGon.NGonSides"] = Input { Value = 4, },
+									Region = Input { Value = FuID { "AllRgn" }, },
+									["ParticleStyle.ColorControls"] = Input { Value = 1, },
+									["ParticleStyle.RedLow"] = Input { Value = -1, },
+									["ParticleStyle.RedHigh"] = Input { Value = 0.025, },
+									["ParticleStyle.GreenLow"] = Input { Value = -1, },
+									["ParticleStyle.GreenHigh"] = Input { Value = 0.087, },
+									["ParticleStyle.BlueLow"] = Input { Value = -1, },
+									["ParticleStyle.BlueHigh"] = Input { Value = 0.012, },
+									["ParticleStyle.SizeControls"] = Input { Value = 1, },
+									["ParticleStyle.Size"] = Input { Value = 1.37, },
+									["ParticleStyle.SizeVariance"] = Input { Value = 0.4134, },
+									["ParticleStyle.SizeZScale"] = Input { Value = 1.354, },
+									["ParticleStyle.SizeOverLife"] = Input {
+										SourceOp = "pEmitter1_1SizeOverLife",
+										Source = "Value",
+									},
+									["ParticleStyle.BlurOverLife"] = Input {
+										SourceOp = "pEmitter1_1BlurOverLife2D",
+										Source = "Value",
+									},
+									["ParticleStyle.ZBlurDOF"] = Input { Value = 0.5, },
+									["ParticleStyle.BlurNearZ"] = Input { Value = 0, },
+									["ParticleStyle.BlurFarZ"] = Input { Value = 0.8, },
+									["LineRgn.Start.X"] = Input { Value = -0.559756097560976, },
+									["LineRgn.Start.Y"] = Input { Value = -0.274926840262008, },
+									["LineRgn.End.X"] = Input { Value = -0.557317073170732, },
+									["LineRgn.End.Y"] = Input { Value = 0.26227919727175, },
+								},
+								ViewInfo = OperatorInfo { Pos = { 31.1157, -80.6025 } },
+							},
+							pEmitter1_1Number = BezierSpline {
+								SplineColor = { Red = 233, Green = 206, Blue = 78 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+								KeyFrames = {
+									[0] = { 200, RH = { 0.333333333333333, 133.333333333333 }, Flags = { Linear = true } },
+									[1] = { 0, LH = { 0.666666666666667, 66.6666666666667 }, Flags = { Linear = true } }
+								}
+							},
+							pEmitter1_1SizeOverLife = LUTBezier {
+								KeyColorSplines = {
+									[0] = {
+										[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+										[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+									}
+								},
+								SplineColor = { Red = 192, Green = 128, Blue = 64 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+							},
+							pEmitter1_1BlurOverLife2D = LUTBezier {
+								KeyColorSplines = {
+									[0] = {
+										[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+										[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+									}
+								},
+								SplineColor = { Red = 192, Green = 128, Blue = 64 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+							}
+						}
+					},
+					[4] = {
+						Tools = ordered() {
+							pEmitter1_1 = pEmitter {
+								ID = 165,
+								CtrlWZoom = false,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } }, },
+								Inputs = {
+									RandomSeed = Input { Value = 4313, },
+									Number = Input {
+										SourceOp = "pEmitter1_2Number",
+										Source = "Value",
+									},
+									VelocityControls = Input { Value = 1, },
+									Style = Input { Value = FuID { "ParticleStyleNGon" }, },
+									["ParticleStyleNGon.NGonType"] = Input { Value = 6, },
+									Region = Input { Value = FuID { "AllRgn" }, },
+									["ParticleStyle.ColorControls"] = Input { Value = 1, },
+									["ParticleStyle.ColorVariance"] = Input { Value = 1, },
+									["ParticleStyle.RedHigh"] = Input { Value = 1, },
+									["ParticleStyle.GreenLow"] = Input { Value = -1, },
+									["ParticleStyle.GreenHigh"] = Input { Value = 1, },
+									["ParticleStyle.BlueLow"] = Input { Value = -1, },
+									["ParticleStyle.SizeControls"] = Input { Value = 1, },
+									["ParticleStyle.Size"] = Input { Value = 1.37, },
+									["ParticleStyle.SizeVariance"] = Input { Value = 0.4, },
+									["ParticleStyle.SizeZScale"] = Input { Value = 0.5, },
+									["ParticleStyle.SizeOverLife"] = Input {
+										SourceOp = "pEmitter1_1SizeOverLife",
+										Source = "Value",
+									},
+									["ParticleStyle.FadeControls"] = Input { Value = 1, },
+									["ParticleStyle.BlurOverLife"] = Input {
+										SourceOp = "pEmitter1_1BlurOverLife2D",
+										Source = "Value",
+									},
+									["LineRgn.Start.X"] = Input { Value = -0.559756097560976, },
+									["LineRgn.Start.Y"] = Input { Value = -0.274926840262008, },
+									["LineRgn.End.X"] = Input { Value = -0.557317073170732, },
+									["LineRgn.End.Y"] = Input { Value = 0.26227919727175, },
+								},
+								ViewInfo = OperatorInfo { Pos = { 31.1157, -80.6025 } },
+							},
+							pEmitter1_2Number = BezierSpline {
+								SplineColor = { Red = 233, Green = 206, Blue = 78 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+								KeyFrames = {
+									[0] = { 200, RH = { 0.333333333333333, 133.333333333333 }, Flags = { Linear = true } },
+									[1] = { 0, LH = { 0.666666666666667, 66.6666666666667 }, Flags = { Linear = true } }
+								}
+							},
+							pEmitter1_1SizeOverLife = LUTBezier {
+								KeyColorSplines = {
+									[0] = {
+										[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+										[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+									}
+								},
+								SplineColor = { Red = 192, Green = 128, Blue = 64 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+							},
+							pEmitter1_1BlurOverLife2D = LUTBezier {
+								KeyColorSplines = {
+									[0] = {
+										[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+										[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+									}
+								},
+								SplineColor = { Red = 192, Green = 128, Blue = 64 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+							}
+						}
+					},
+					[5] = {
+						Tools = ordered() {
+							pEmitter1_1 = pEmitter {
+								ID = 165,
+								CtrlWZoom = false,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } }, },
+								Inputs = {
+									["ParticleStyleNGon.NGonType"] = Input { Value = 6, },
+									RandomSeed = Input { Value = 4313, },
+									Number = Input { Value = 4, },
+									VelocityControls = Input { Value = 1, },
+									Velocity = Input { Value = 0.346, },
+									VelocityVariance = Input { Value = 0.126, },
+									Style = Input { Value = FuID { "ParticleStyleBlob" }, },
+									Region = Input { Value = FuID { "LineRgn" }, },
+									["ParticleStyle.Size"] = Input { Value = 0.724, },
+									["ParticleStyle.SizeVariance"] = Input { Value = 0.5, },
+									["ParticleStyle.SizeOverLife"] = Input {
+										SourceOp = "pEmitter1_1SizeOverLife",
+										Source = "Value",
+									},
+									["ParticleStyle.FadeControls"] = Input { Value = 1, },
+									["ParticleStyle.BlurOverLife"] = Input {
+										SourceOp = "pEmitter1_1BlurOverLife2D",
+										Source = "Value",
+									},
+									["LineRgn.Start.X"] = Input { Value = -0.559756097560976, },
+									["LineRgn.Start.Y"] = Input { Value = -0.274926840262008, },
+									["LineRgn.End.X"] = Input { Value = -0.557317073170732, },
+									["LineRgn.End.Y"] = Input { Value = 0.26227919727175, },
+								},
+								ViewInfo = OperatorInfo { Pos = { 31.1157, -80.6025 } },
+							},
+							pEmitter1_1SizeOverLife = LUTBezier {
+								KeyColorSplines = {
+									[0] = {
+										[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+										[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+									}
+								},
+								SplineColor = { Red = 192, Green = 128, Blue = 64 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+							},
+							pEmitter1_1BlurOverLife2D = LUTBezier {
+								KeyColorSplines = {
+									[0] = {
+										[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+										[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+									}
+								},
+								SplineColor = { Red = 192, Green = 128, Blue = 64 },
+								CtrlWZoom = false,
+								NameSet = true,
+								CustomData = { Path = { Map = { ["Setting:"] = "Templates:\\custom\\Tools\\" } } },
+							}
+						}
+					},
+				},
+				Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\New Final Tools\\Free\\" } }
+			},
+			Inputs = {
+				RandomSeed = Input { Value = 4313, },
+				Number = Input {
+					SourceOp = "pEmitter1_2Number",
+					Source = "Value",
+				},
+				VelocityControls = Input { Value = 1, },
+				Velocity = Input { Value = 0.047, },
+				VelocityVariance = Input { Value = 0.175, },
+				Angle = Input { Value = 70.5, },
+				AngleVariance = Input { Value = 127.8, },
+				RotationZ = Input { Value = 367.8, },
+				RotationZVariance = Input { Value = 331.3, },
+				Style = Input { Value = FuID { "ParticleStyleBlob" }, },
+				["ParticleStyleNGon.NGonType"] = Input { Value = 6, },
+				["ParticleStyleNGon.NGonSides"] = Input { Value = 4, },
+				Region = Input { Value = FuID { "AllRgn" }, },
+				["ParticleStyle.SizeControls"] = Input { Value = 1, },
+				["ParticleStyle.Size"] = Input { Value = 2, },
+				["ParticleStyle.SizeVariance"] = Input { Value = 0.25, },
+				["ParticleStyle.SizeZScale"] = Input { Value = 0.5, },
+				["ParticleStyle.SizeOverLife"] = Input {
+					SourceOp = "pEmitter1_1SizeOverLife",
+					Source = "Value",
+				},
+				["ParticleStyle.FadeControls"] = Input { Value = 1, },
+				["ParticleStyle.BlurOverLife"] = Input {
+					SourceOp = "pEmitter1_1BlurOverLife2D",
+					Source = "Value",
+				},
+				["LineRgn.Start.X"] = Input { Value = -0.559756097560976, },
+				["LineRgn.Start.Y"] = Input { Value = -0.274926840262008, },
+				["LineRgn.End.X"] = Input { Value = -0.557317073170732, },
+				["LineRgn.End.Y"] = Input { Value = 0.26227919727175, },
+			},
+			ViewInfo = OperatorInfo { Pos = { 31.1157, -80.6025 } },
+		},
+		pEmitter1_2Number = BezierSpline {
+			SplineColor = { Red = 233, Green = 206, Blue = 78 },
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\New Final Tools\\Free\\" } } },
+			KeyFrames = {
+				[0] = { 100, RH = { 0.333333333333333, 66.6666666666667 }, Flags = { Linear = true } },
+				[1] = { 0, LH = { 0.666666666666667, 33.3333333333333 }, Flags = { Linear = true } }
+			}
+		},
+		pEmitter1_1SizeOverLife = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\New Final Tools\\Free\\" } } },
+		},
+		pEmitter1_1BlurOverLife2D = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0.5, RH = { 0.333333333333333, 0.5 }, Flags = { Linear = true } },
+					[1] = { 0.5, LH = { 0.666666666666667, 0.5 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 192, Green = 128, Blue = 64 },
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\New Final Tools\\Free\\" } } },
+		}
+	},
+	ActiveTool = "pEmitter1_1"
+}

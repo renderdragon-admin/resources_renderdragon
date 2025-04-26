@@ -1,0 +1,46 @@
+{
+	Tools = ordered() {
+		Twixtor1 = ofx.com.revisionfx.Twixtor {
+			CtrlWZoom = false,
+			Inputs = {
+				RVLicenseInfoButton = Input { Value = 0, },
+				Display = Input { Value = 0, },
+				UseGPU = Input { Value = 0, },
+				TimeRetimeMethod = Input { Value = 1, },
+				Speed = Input {
+					Value = 0,
+					Disabled = true,
+				},
+				Frame = Input {
+					SourceOp = "Twixtor1Frame",
+					Source = "Value",
+				},
+				TrackingQuality = Input { Value = 4, },
+				MotionSensitivity = Input { Value = 70, },
+				ImagePrep = Input { Value = 0, },
+				TrackRGBA = Input { Value = 0, },
+				Video360 = Input { Value = 0, },
+				FrameInterp = Input { Value = 1, },
+				Warping = Input { Value = 0, },
+				SmartBlend = Input { Value = 1, },
+				MotionBlurCompensation = Input { Value = 0, },
+				MarkSegments = Input { Value = 0, },
+				StartFrame = Input { Value = 0, },
+				TimeOffset = Input { Value = 0, },
+				CustomData_DoNotEdit = Input { Value = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", },
+			},
+			ViewInfo = OperatorInfo { Pos = { 224.397, 11.7877 } },
+		},
+		Twixtor1Frame = BezierSpline {
+			SplineColor = { Red = 219, Green = 16, Blue = 164 },
+			CtrlWZoom = false,
+			KeyFrames = {
+				[0] = { 0, RH = { 0.4, 11 }, Flags = { Linear = true } },
+				[25] = { 25, LH = { 17.2, 10 }, RH = { 25, 39.4999999999995 } },
+				[50] = { 50, LH = { 45.8, 38 }, RH = { 50, 64 } },
+				[80] = { 80, LH = { 53.5000510001, 70 }, RH = { 109.697006173177, 96.6988901070978 } },
+				[186] = { 123, LH = { 142, 94 } }
+			}
+		}
+	}
+}

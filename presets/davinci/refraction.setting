@@ -1,0 +1,330 @@
+{
+	Tools = ordered() {
+		Refraction = GroupOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\New Final\\Free\\" } }, HelpPage = "http://vfxpedia.com/index.php?title=Settings_and_Macros/Refraction_Description", },
+			Inputs = ordered() {
+				Comments = Input { Value = "Refraction for Fusion 6 and above. Distorts an image based on a height map.\n\nIn v06-7: Name of the macro in the Display View. No processing when Blend=0 (instancing warning)\n\nby Gregory Chalenko\r\nwww.compositing.ru", },
+				Input = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "Image1",
+					Name = "Image to Distort",
+				},
+				RefractionMap = InstanceInput {
+					SourceOp = "MapBlur_1",
+					Source = "Input",
+					Name = "Refraction Map",
+				},
+				RefractionPower = InstanceInput {
+					SourceOp = "Bol_Power_1",
+					Source = "Foreground",
+					Name = "Refraction Power",
+				},
+				MapBlur = InstanceInput {
+					SourceOp = "MapBlur_1",
+					Source = "XBlurSize",
+					Name = "Map Blur",
+					Default = 10,
+				},
+				SourceChannel = InstanceInput {
+					SourceOp = "CreateBumpMap_1",
+					Source = "SourceChannel",
+				},
+				RefractionStrength = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "NumberIn1",
+					Default = 1,
+				},
+				HorizontalStrengthMultiplier = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "NumberIn2",
+					Default = 1,
+				},
+				VerticalStrengthMultiplier = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "NumberIn3",
+					Default = 1,
+				},
+				UsePowerMap = InstanceInput {
+					SourceOp = "Bol_Power_1",
+					Source = "UsePowerMap",
+				},
+				EnableDispersion = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "EnableDispersion",
+				},
+				RGBMultipliers = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "LUTControls",
+					Name = "RGB Multipliers",
+					Default = 1,
+				},
+				RedStrengthMultiplier = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "NumberIn4",
+					Default = 1.02,
+				},
+				GreenStrengthMultiplier = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "NumberIn5",
+					Default = 1.01,
+				},
+				BlueStrengthMultiplier = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "NumberIn6",
+					Default = 1,
+				},
+				Blend = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "Blend",
+					Page = "Common Controls",
+				},
+				ProcessWhenBlendIs00 = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "ProcessWhenBlendIs00",
+				},
+				ProcessRed = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "ProcessRed",
+				},
+				ProcessGreen = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "ProcessGreen",
+				},
+				ProcessBlue = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "ProcessBlue",
+				},
+				ProcessAlpha = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "ProcessAlpha",
+				},
+				ApplyMaskInverted = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "ApplyMaskInverted",
+				},
+				MultiplyByMask = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "MultiplyByMask",
+				},
+				MaskChannel = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "MaskChannel",
+				},
+				MaskHigh = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "MaskHigh",
+					ControlGroup = 4,
+				},
+				MaskLow = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "MaskLow",
+					ControlGroup = 4,
+				},
+				EffectMask = InstanceInput {
+					SourceOp = "RefractionMacro_1",
+					Source = "EffectMask",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "RefractionMacro_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 1487.54, 181.699 },
+				Flags = {
+					AllowPan = false,
+					AutoSnap = true
+				},
+				Size = { 310.11, 187.294, 155.055, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { 0, 0 }
+			},
+			Tools = ordered() {
+				MapBlur_1 = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Blend = Input { Expression = "iif(RefractionMacro_1.Blend+RefractionMacro_1.ProcessWhenBlendIs00==0, 0, 1)", },
+						Filter = Input { Value = FuID { "Gaussian" }, },
+						XBlurSize = Input { Value = 18, },
+						Input = Input {
+							SourceOp = "MediaIn1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -92.1098, 8.29218 } },
+					Colors = {
+						TileColor = { R = 0.725490196078431, G = 0.690196078431373, B = 0.592156862745098 },
+						TextColor = { R = 0.725490196078431, G = 0.690196078431373, B = 0.592156862745098 },
+					}
+				},
+				RefractionMacro_1 = Custom {
+					Inputs = {
+						NumberIn1 = Input { Value = -2.13, },
+						NumberIn2 = Input { Value = 2, },
+						NumberIn3 = Input { Value = 2, },
+						NumberIn4 = Input { Value = 3, },
+						NumberIn5 = Input { Value = 1.5, },
+						NumberIn6 = Input { Value = 1, },
+						LUTIn1 = Input {
+							SourceOp = "RefractionMacro_1LUTIn1",
+							Source = "Value",
+						},
+						LUTIn2 = Input {
+							SourceOp = "RefractionMacro_1LUTIn2",
+							Source = "Value",
+						},
+						LUTIn3 = Input {
+							SourceOp = "RefractionMacro_1LUTIn3",
+							Source = "Value",
+						},
+						LUTIn4 = Input {
+							SourceOp = "RefractionMacro_1LUTIn4",
+							Source = "Value",
+						},
+						Intermediate1 = Input { Value = "r2*n1*n2", },
+						Intermediate2 = Input { Value = "g2*n1*n3", },
+						RedExpression = Input {
+							Value = "getr1m(x+i1,y+i2)",
+							Expression = "Text(iif(EnableDispersion==1, \"getr1m(x+i1*n4,y+i2*n4)\", \"getr1m(x+i1,y+i2)\" ))",
+						},
+						GreenExpression = Input {
+							Value = "getg1m(x+i1,y+i2)",
+							Expression = "Text(iif(EnableDispersion==1, \"getg1m(x+i1*n5,y+i2*n5)\", \"getg1m(x+i1,y+i2)\" ))",
+						},
+						BlueExpression = Input {
+							Value = "getb1m(x+i1,y+i2)",
+							Expression = "Text(iif(EnableDispersion==1, \"getb1m(x+i1*n6,y+i2*n6)\", \"getb1m(x+i1,y+i2)\" ))",
+						},
+						AlphaExpression = Input { Value = "geta1w(x+i1,y+i2)", },
+						NameforNumber1 = Input { Value = "Refraction Strength", },
+						NameforNumber2 = Input { Value = "Horizontal Strength Multiplier", },
+						NameforNumber3 = Input { Value = "Vertical Strength Multiplier", },
+						NameforNumber4 = Input { Value = "Red Strength Multiplier", },
+						NameforNumber5 = Input { Value = "Green Strength Multiplier", },
+						NameforNumber6 = Input { Value = "Blue Strength Multiplier", },
+						LUTControls = Input { Value = 1, },
+						Image1 = Input {
+							SourceOp = "MediaIn1",
+							Source = "Output",
+						},
+						Image2 = Input {
+							SourceOp = "Bol_Power_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { 92, 74.9685 } },
+					UserControls = ordered() { EnableDispersion = { LINKID_DataType = "Number", INP_Default = 0, IC_ControlPage = 3, INPID_InputControl = "CheckboxControl", LINKS_Name = "Enable Dispersion", } }
+				},
+				CreateBumpMap_1 = CreateBumpMap {
+					CtrlWShown = false,
+					Inputs = {
+						Blend = Input { Expression = "iif(RefractionMacro_1.Blend+RefractionMacro_1.ProcessWhenBlendIs00==0, 0, 1)", },
+						Input = Input {
+							SourceOp = "MapBlur_1",
+							Source = "Output",
+						},
+						HeightScale = Input { Value = 4, },
+						BumpmapTextureDepth = Input { Value = 4, },
+					},
+					ViewInfo = OperatorInfo { Pos = { -92.1098, 41.2923 } },
+				},
+				BrightnessContrast_3_1_2_1 = BrightnessContrast {
+					CtrlWShown = false,
+					Inputs = {
+						Blend = Input { Expression = "iif(RefractionMacro_1.Blend+RefractionMacro_1.ProcessWhenBlendIs00==0, 0, 1)", },
+						Brightness = Input { Value = -0.5, },
+						Input = Input {
+							SourceOp = "CreateBumpMap_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -90.718, 77.8315 } },
+					Colors = {
+						TileColor = { R = 0.776470588235294, G = 0.627450980392157, B = 0.466666666666667 },
+						TextColor = { R = 0.725490196078431, G = 0.690196078431373, B = 0.592156862745098 },
+					}
+				},
+				Bol_Power_1 = ChannelBoolean {
+					CtrlWShown = false,
+					Inputs = {
+						Blend = Input {
+							Value = 0,
+							Expression = "iif((RefractionMacro_1.Blend+RefractionMacro_1.ProcessWhenBlendIs00)*UsePowerMap==0, 0, 1)",
+						},
+						Operation = Input { Value = 6, },
+						ToRed = Input { Value = 3, },
+						ToGreen = Input { Value = 3, },
+						ToBlue = Input { Value = 4, },
+						ToAlpha = Input { Value = 4, },
+						Background = Input {
+							SourceOp = "BrightnessContrast_3_1_2_1",
+							Source = "Output",
+						},
+					},
+					ViewInfo = OperatorInfo { Pos = { -67.36, 129.223 } },
+					Colors = {
+						TileColor = { R = 0.776470588235294, G = 0.627450980392157, B = 0.466666666666667 },
+						TextColor = { R = 0.725490196078431, G = 0.690196078431373, B = 0.592156862745098 },
+					},
+					UserControls = ordered() { UsePowerMap = { LINKID_DataType = "Number", INP_Default = 0, IC_ControlPage = 2, INPID_InputControl = "CheckboxControl", LINKS_Name = "Use Power Map", } }
+				}
+			},
+			Colors = {
+				TileColor = { R = 0.6, G = 0.450980392156863, B = 0.627450980392157 },
+				TextColor = { R = 0.725490196078431, G = 0.690196078431373, B = 0.592156862745098 },
+			}
+		},
+		RefractionMacro_1LUTIn1 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 204, Green = 0, Blue = 0 },
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\New Final\\Free\\" } } },
+		},
+		RefractionMacro_1LUTIn2 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 0, Green = 204, Blue = 0 },
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\New Final\\Free\\" } } },
+		},
+		RefractionMacro_1LUTIn3 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 0, Green = 0, Blue = 204 },
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\New Final\\Free\\" } } },
+		},
+		RefractionMacro_1LUTIn4 = LUTBezier {
+			KeyColorSplines = {
+				[0] = {
+					[0] = { 0, RH = { 0.333333333333333, 0.333333333333333 }, Flags = { Linear = true } },
+					[1] = { 1, LH = { 0.666666666666667, 0.666666666666667 }, Flags = { Linear = true } }
+				}
+			},
+			SplineColor = { Red = 204, Green = 204, Blue = 204 },
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\New Final\\Free\\" } } },
+		}
+	}
+}

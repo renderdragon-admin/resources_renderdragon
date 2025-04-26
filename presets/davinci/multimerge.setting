@@ -1,0 +1,136 @@
+{
+	Tools = ordered() {
+		pj_MultiMerge = GroupOperator {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "C:\\Users\\pjviz\\Documents\\shared presets\\Transfer\\_Official\\PeeJ PACK TOOLS FINAL\\Free\\"
+					}
+				},
+			},
+			Inputs = ordered() {
+				Comments = Input { Value = "Layers: Top-Bottom\nWhite 5\nTeal 4\nPink 3\nGreen 2\nYellow 1", },
+				Input1 = InstanceInput {
+					SourceOp = "Merge1_1_2_1",
+					Source = "Foreground",
+					Name = "1",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Merge2_1_1_1",
+					Source = "Foreground",
+					Name = "2",
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Merge3_1_1_1",
+					Source = "Foreground",
+					Name = "3",
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Merge4_1_1_1",
+					Source = "Foreground",
+					Name = "4",
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Merge5_1_1",
+					Source = "Foreground",
+					Name = "5",
+				}
+			},
+			Outputs = {
+				Output1 = InstanceOutput {
+					SourceOp = "Merge5_1_1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 347.037, 50.746 },
+				Flags = {
+					AllowPan = false,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 676, 66.3636, 338, 24.2424 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { -533.127, -16.4104 }
+			},
+			Tools = ordered() {
+				Merge5_1_1 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge4_1_1_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 808.127, 25.0468 } },
+				},
+				Merge4_1_1_1 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge3_1_1_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 698.127, 25.0468 } },
+				},
+				Merge3_1_1_1 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge2_1_1_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 588.127, 25.0468 } },
+				},
+				Merge2_1_1_1 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge1_1_2_1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 478.127, 25.0468 } },
+				},
+				Merge1_1_2_1 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Background1_1_1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "MediaIn1",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 368.127, 25.0468 } },
+				},
+				Background1_1_1_1 = Background {
+					CtrlWShown = false,
+					Inputs = {
+						GlobalOut = Input { Value = 23, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, },
+					},
+					ViewInfo = OperatorInfo { Pos = { 258.127, 25.0468 } },
+				}
+			},
+			Colors = { TileColor = { R = 0.584313725490196, G = 0.294117647058824, B = 0.803921568627451 }, }
+		}
+	}
+}
