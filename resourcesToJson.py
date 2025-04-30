@@ -65,6 +65,7 @@ def main():
     directory = select_directory()
 
     if directory:
+        print(directory)
         resources = extract_file_info(directory)
         write_resources_to_file(resources)
         print("resources.json file created successfully.")
